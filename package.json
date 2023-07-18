@@ -1,0 +1,20 @@
+{
+  "name": "request-portal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "private": true,
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "all": "concurrently --kill-others-on-fail \"yarn start:server\" \"yarn start:web\"",
+    "start:web": "yarn workspace client start",
+    "start:server": "yarn workspace server dev"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
