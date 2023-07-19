@@ -9,6 +9,8 @@ import axios from "axios";
 import Notification from "../../../components/Snackbar/snackbar";
 import { defaultStyle, previewStyle } from "@constants/form-style";
 import PreviewDocx from "./PreviewDocx";
+
+import AddIcon from "@mui/icons-material/Add";
 import CheckIcon from "@mui/icons-material/Check";
 import { NOTIFICATION, TIMESTAMP_FORMAT } from "@constants/common";
 export default function FormEditing(props) {
@@ -205,17 +207,17 @@ export default function FormEditing(props) {
                   />
                 </Box>
               </Box>
-
-              <Box marginTop={"20px"}>
-                <React.Fragment>
+              <Box marginTop={"20px"} display={"flex"} flexWrap={"wrap"}>
+                <Box width={"100%"}>
                   <Button
                     variant="contained"
                     type="button"
                     onClick={() => {
                       handleAddInput("text");
                     }}
+                    startIcon={<AddIcon />}
                   >
-                    Add Text Input
+                    Text Input
                   </Button>
                   <Button
                     style={{ marginLeft: "20px" }}
@@ -224,8 +226,9 @@ export default function FormEditing(props) {
                     onClick={() => {
                       handleAddInput("date");
                     }}
+                    startIcon={<AddIcon />}
                   >
-                    Add Date Input
+                    Date Input
                   </Button>
                   <Button
                     style={{ marginLeft: "20px" }}
@@ -234,8 +237,9 @@ export default function FormEditing(props) {
                     onClick={() => {
                       handleAddInput("textarea");
                     }}
+                    startIcon={<AddIcon />}
                   >
-                    Add Text Area
+                    Text Area
                   </Button>
                   <Button
                     style={{ marginLeft: "20px" }}
@@ -245,7 +249,17 @@ export default function FormEditing(props) {
                   >
                     Submit
                   </Button>
-                </React.Fragment>
+                </Box>
+                <Box marginTop={1}>
+                  <label>Các trường mặc định:</label>
+                  <br />
+                  <textarea
+                    disabled
+                    rows={8}
+                    cols={20}
+                    placeholder="academicYear&#13;faculty&#13;phoneNumber&#13;placeOfBirth&#13;trainingForm&#13;maxStudyTime&#13;birthdate"
+                  />
+                </Box>
               </Box>
               <Box>
                 <Box

@@ -29,7 +29,7 @@ exports.getDataByTicketID = async (req, res) => {
   try {
     let connection = await dbConnection();
     const paramId = req.params.id;
-    let sql = `SELECT ticket_data ,note,username,status, active_step FROM request_ticket JOIN profile on request_ticket.profile_id = profile.profile_id JOIN account ON profile.account_id = account.account_id  WHERE ticket_id = ? `;
+    let sql = `SELECT ticket_data ,note,username,status, active_step,phone_number, place_of_birth, faculty, academic_year, max_study_time, training_form, birthdate FROM request_ticket JOIN profile on request_ticket.profile_id = profile.profile_id JOIN account ON profile.account_id = account.account_id  WHERE ticket_id = ? `;
     const value = [paramId];
     let getDataByTicketID = await sqlQuery(connection, sql, value);
     connection.end();

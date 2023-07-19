@@ -7,7 +7,7 @@ exports.checkAccountInfo = async (req, res) => {
     let connection = await dbConnection();
     let getUserNameQuery = `SELECT username FROM account WHERE username = ? `;
     let getPasswordQuery = `SELECT password FROM account WHERE password = ? `;
-    let getRoleQuery = `SELECT name FROM account join role on account.role_id = role.role_id WHERE username = '${username}' and password = '${password}'`;
+    let getRoleQuery = `SELECT role from account WHERE username = '${username}' and password = '${password}'`;
     let getUserName = await sqlQuery(connection, getUserNameQuery, [username]);
     let getPassword = await sqlQuery(connection, getPasswordQuery, [password]);
     let getRole = await sqlQuery(connection, getRoleQuery);
@@ -23,7 +23,7 @@ exports.checkAccountInfo = async (req, res) => {
     } else {
       return res.status(200).json({
         message: "Login Successfully",
-        role: getRole[0].name,
+        role: getRole[0].role,
       });
     }
   } catch (error) {
@@ -39,7 +39,7 @@ exports.getStaffEmailList = async (req, res) => {
     let connection = await dbConnection();
     const { staffRole } = req.query;
     let sql =
-      "select email from account join profile on account.account_id = profile.account_id JOIN role ON account.role_id = role.role_id where role.name = ? ";
+      "select email from account join profile on account.account_id = profile.account_id where account.role = ? ";
     let values = [staffRole];
     let getFormList = await sqlQuery(connection, sql, values);
 

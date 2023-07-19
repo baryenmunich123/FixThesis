@@ -17,6 +17,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import background from "../../assets/dhqt-dhqg_hcm.jpg";
 import { HOME_PAGE } from "@constants/common";
+import { APPROVAL_LIST, PERMISSIONS } from "../../constants/common";
 function Copyright(props) {
   return (
     <Typography
@@ -57,7 +58,12 @@ export default function LoginPage() {
               role: res.data.role,
             };
             getUser(userInfo);
-            navigate(HOME_PAGE);
+            if (
+              userInfo.role === PERMISSIONS.STUDENT ||
+              userInfo.role === PERMISSIONS.ADMIN
+            )
+              navigate(HOME_PAGE);
+            else navigate(APPROVAL_LIST);
           } else {
             setIsLoginFailed(res.data.message);
             setTimeout(() => {
