@@ -23,6 +23,7 @@ import {
 import Notification from "../../components/Snackbar/snackbar";
 import { DATE_FORMAT, NOTIFICATION, TIMESTAMP_FORMAT } from "@constants";
 import { makeStyles } from "@mui/styles";
+import { BIRTHDATE_FORMAT, MAX_TIME_FORMAT } from "../../constants/common";
 
 const useStyles = makeStyles(() => ({
   ticketProcess: {
@@ -175,7 +176,6 @@ export default function TicketPage() {
     const rs = await axios.get(
       `http://localhost:8080/getDataByTicketID/${ticketID}`
     );
-
     setTicketData(JSON.parse(rs.data[0].ticket_data));
     setRequestor(rs.data[0].username);
     setPreviousNote(rs.data[0].note);
@@ -189,6 +189,16 @@ export default function TicketPage() {
     Promise.allSettled([fetchDataByTicketId(), fechDynamicFormById()]).then(
       (res) => {
         const formData = JSON.parse(res[0]?.value?.data[0].ticket_data);
+        formData.academicYear = res[0]?.value?.data[0].academic_year;
+        formData.faculty = res[0]?.value?.data[0].faculty;
+        formData.phoneNumber = res[0]?.value?.data[0].phone_number;
+        formData.placeOfBirth = res[0]?.value?.data[0].place_of_birth;
+        formData.trainingForm = res[0]?.value?.data[0].training_form;
+        const parsedBirthdate = dayjs(res[0]?.value?.data[0].birthdate);
+        formData.birthdate = parsedBirthdate.format(BIRTHDATE_FORMAT);
+        const parsedMaxStudyTime = dayjs(res[0]?.value?.data[0].max_study_time);
+        formData.maxStudyTime = parsedMaxStudyTime.format(MAX_TIME_FORMAT);
+        console.log(formData);
         const Data = {
           approved_date: dayjs().date(),
           approved_month: dayjs().month() + 1,

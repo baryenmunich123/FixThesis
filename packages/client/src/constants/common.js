@@ -5,6 +5,7 @@ export const PERMISSIONS = {
   APPROVER: "approver",
   EXECUTOR: "executor",
   MANAGER: "manager",
+  ADMIN: "admin",
 };
 
 export const TICKET_STATUS = {
@@ -13,6 +14,8 @@ export const TICKET_STATUS = {
 };
 
 export const DATE_FORMAT = "DD-MM-YYYY HH:mm";
+export const MAX_TIME_FORMAT = "MM:YYYY";
+export const BIRTHDATE_FORMAT = "DD/MM/YYYY";
 export const TIMESTAMP_FORMAT = "YYYY-MM-DD HH:mm:ss";
 export const DEFAULT_TIMEZONE = "Asia/Ho_Chi_Minh";
 export const LOGIN_PAGE = "/";

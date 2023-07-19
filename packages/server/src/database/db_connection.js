@@ -1,6 +1,6 @@
 const mysql = require("mysql");
-const dotenv = require('dotenv');
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
 
 //-----------------------------------
 const dbConfig = {
@@ -8,7 +8,7 @@ const dbConfig = {
   user: process.env.APP_ENV_MYSQL_USER,
   password: process.env.APP_ENV_MYSQL_PASSWORD,
   database: process.env.APP_ENV_MYSQL_DB,
-  timezone: 'Asia/Saigon'
+  timezone: "Asia/Saigon",
 };
 
 module.exports = () =>
@@ -24,6 +24,3 @@ module.exports = () =>
       resolve(connection);
     });
   });
-
-
-

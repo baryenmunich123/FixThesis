@@ -219,48 +219,60 @@ export default function BasicModal(props) {
               </Box>
               <Box marginTop={"20px"}>
                 {isDynamicType && (
-                  <React.Fragment>
-                    <Button
-                      variant="contained"
-                      type="button"
-                      onClick={() => {
-                        handleAddInput("text");
-                      }}
-                      startIcon={<AddIcon />}
-                    >
-                      Text Input
-                    </Button>
-                    <Button
-                      style={{ marginLeft: "20px" }}
-                      variant="contained"
-                      type="button"
-                      onClick={() => {
-                        handleAddInput("date");
-                      }}
-                      startIcon={<AddIcon />}
-                    >
-                      Date Input
-                    </Button>
-                    <Button
-                      style={{ marginLeft: "20px" }}
-                      variant="contained"
-                      type="button"
-                      onClick={() => {
-                        handleAddInput("textarea");
-                      }}
-                      startIcon={<AddIcon />}
-                    >
-                      Text Area
-                    </Button>
-                    <Button
-                      style={{ marginLeft: "20px" }}
-                      variant="contained"
-                      type="submit"
-                      startIcon={<CheckIcon />}
-                    >
-                      Submit
-                    </Button>
-                  </React.Fragment>
+                  <Box display={"flex"} flexWrap={"wrap"}>
+                    <Box width={"100%"}>
+                      <Button
+                        variant="contained"
+                        type="button"
+                        onClick={() => {
+                          handleAddInput("text");
+                        }}
+                        startIcon={<AddIcon />}
+                      >
+                        Text Input
+                      </Button>
+                      <Button
+                        style={{ marginLeft: "20px" }}
+                        variant="contained"
+                        type="button"
+                        onClick={() => {
+                          handleAddInput("date");
+                        }}
+                        startIcon={<AddIcon />}
+                      >
+                        Date Input
+                      </Button>
+                      <Button
+                        style={{ marginLeft: "20px" }}
+                        variant="contained"
+                        type="button"
+                        onClick={() => {
+                          handleAddInput("textarea");
+                        }}
+                        startIcon={<AddIcon />}
+                      >
+                        Text Area
+                      </Button>
+                      <Button
+                        style={{ marginLeft: "20px" }}
+                        variant="contained"
+                        type="submit"
+                        startIcon={<CheckIcon />}
+                      >
+                        Submit
+                      </Button>
+                    </Box>
+                    <Box marginTop={1}>
+                      <label>Các trường mặc định:</label>
+                      <br />
+                      <textarea
+                        disabled
+                        rows={8}
+                        cols={20}
+                        placeholder="academicYear&#13;faculty&#13;phoneNumber&#13;placeOfBirth&#13;trainingForm&#13;maxStudyTime&#13;birthdate"
+                      />
+                    </Box>
+                  </Box>
                 )}
               </Box>
               {isDynamicType ? (
