@@ -268,8 +268,8 @@ export default function BasicModal(props) {
                       <textarea
                         disabled
                         rows={8}
-                        cols={20}
-                        placeholder="academicYear&#13;faculty&#13;phoneNumber&#13;placeOfBirth&#13;trainingForm&#13;maxStudyTime&#13;birthdate"
+                        cols={60}
+                        placeholder="firstName&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;lastName&#13;email&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;studentId&#13;academicYear&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;faculty&#13;phoneNumber&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;placeOfBirth&#13;trainingForm&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;maxStudyTime&#13;birthdate"
                       />
                     </Box>
                   </Box>

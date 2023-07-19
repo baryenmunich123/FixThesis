@@ -189,6 +189,10 @@ export default function TicketPage() {
     Promise.allSettled([fetchDataByTicketId(), fechDynamicFormById()]).then(
       (res) => {
         const formData = JSON.parse(res[0]?.value?.data[0].ticket_data);
+        formData.firstName = res[0]?.value?.data[0].first_name;
+        formData.lastName = res[0]?.value?.data[0].last_name;
+        formData.email = res[0]?.value?.data[0].email;
+        formData.studentId = res[0]?.value?.data[0].student_id;
         formData.academicYear = res[0]?.value?.data[0].academic_year;
         formData.faculty = res[0]?.value?.data[0].faculty;
         formData.phoneNumber = res[0]?.value?.data[0].phone_number;

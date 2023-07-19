@@ -50,13 +50,10 @@ function Sidebar() {
             </Link>
           </li>
         )}
-        {(user.role === PERMISSIONS.STUDENT ||
-          user.role == PERMISSIONS.ADMIN) && (
+        {user.role === PERMISSIONS.STUDENT && (
           <li>
             <Link to={REQUEST_LIST} className={classes.sidebarItem}>
-              {user.role === PERMISSIONS.STUDENT
-                ? "My Requests"
-                : "Student Requests"}
+              My Requests
             </Link>
           </li>
         )}
